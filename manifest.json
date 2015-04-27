@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "自动访问很多链接",
+	"description": "用于百度浏览器刷积分活动，获取当前打开的页面内所有URL轮询访问。点击按钮开始，再点一次停止。",
+	"version": "1.0",
+	"permissions": [
+		"tabs",
+		"notifications"
+	],
+	"browser_action": {
+	"default_icon": "icon.png"
+	},
+	"background": {
+		"scripts": ["js/jquery.js","js/background.js"],
+		"persistent": false
+	},
+	"content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["js/jquery.js", "js/content.js"],
+	  "run_at": "document_start"
+    }
+  ]
+}
